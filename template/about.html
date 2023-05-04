@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    body {
+
+        background-image: url("/static/crime4.jpeg");
+        background-size: cover;
+        background-color: #0B3861; /* Army blue background color */
+        color: white; /* Text color */
+        font-family: Arial, sans-serif; /* Font family */
+        font-size: 16px; /* Font size */
+        line-height: 1.5; /* Line height */
+    }
+
+    h1 {
+        font-size: 36px; /* Header font size */
+        margin-top: 50px; /* Top margin */
+        margin-bottom: 30px; /* Bottom margin */
+        text-align: center; /* Center align */
+        text-transform: uppercase; /* Text uppercase */
+    }
+
+    p {
+        font-size: 18px; /* Paragraph font size */
+        margin-bottom: 20px; /* Bottom margin */
+        text-align: justify; /* Justify align */
+    }
+</style>
+<h1>About Crime Rate Prediction System</h1>
+<p>Crime rate is increasing now-a-days in many countries. In today’s world with such higher crime rate and brutal crime happening, there must be some protection against this crime. Here we introduced a system by which crime rate can be reduced. Crime data must be fed into the system. We introduced data mining algorithm to predict crime. K-means algorithm plays an important role in analyzing and predicting crimes. K-means algorithm will cluster co-offenders, collaboration and dissolution of organized crime groups, identifying various relevant crime patterns, hidden links, link prediction and statistical analysis of crime data. This system will prevent crime occurring in society. Crime data is analyzed which is stored in the database. Data mining algorithm will extract information and patterns from database. System will group crime. Clustering will be done based on places where crime occurred, gang who involved in crime and the timing crime took place. This will help to predict crime which will occur in future. Admin will enter crime details into the system which is required for prediction. Admin can view criminal historical data. Crime incident prediction depends mainly on the historical crime record and various geospatial and demographic information.</p>
+{% endblock %}

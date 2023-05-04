@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crime Cluster Prediction</title>
+    <style>
+        body {
+          background-color: #1F497D; /* army blue */
+          color: #FFFFFF; /* white */
+        }
+      </style>
+</head>
+<body>
+    <h2>Crime Cluster Prediction Result</h2>
+    <p>{{ prediction_text }}</p>
+    <p>From the analysis above we find that this is a <b>HIGH CRIME AREA</b></p>
+
+    <h3>Histogram of Clusters</h3>
+    <img src="data:image/png;base64,{{ image_histogram }}" />
+
+    <h3>Pie Chart of Crime Types</h3>
+    <img src="data:image/png;base64,{{ image_piechart }}" />
+</body>
+</html>

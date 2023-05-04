@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Crime Prediction</title>
+    <style>
+      body {
+        background-color: #1F497D; /* army blue */
+        color: #FFFFFF; /* white */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Crime Prediction</h1>
+   
+    {% if plot is not none %}
+      <img src="data:image/png;base64,{{ plot }}" alt="Distribution of Theft and Assault Across Years">
+    {% endif %}
+    {% if theft_pred is not none and assault_pred is not none %}
+      <p>Predicted number of thefts for {{ year }}: {{ theft_pred }}</p>
+      <p>Predicted number of assaults for {{ year }}: {{ assault_pred }}</p>
+      <p>Predicted number of murders for {{ year }}: {{ murder_pred }}</p>
+    {% endif %}
+  </body>
+</html>

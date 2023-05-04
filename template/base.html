@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+  <div class="topnav">
+      <a class="navbar-brand" href="{{ url_for('home') }}" style="color: rgb(31, 6, 122);"><b>Home</b></a>
+      <div class="topnavright" >
+        <a class="nav-link" href="{{ url_for('about') }}" style="color: blueviolet;">About</a>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+        </li> -->
+        {% if session.get('user_id') %}
+        <a class="nav-link" href="{{ url_for('dashboard') }}" style="color: blueviolet;">Dashboard</a>
+        <a class="nav-link" href="{{ url_for('logout') }}" style="color: blueviolet;">Logout</a>
+        {% else %}
+        <a class="nav-link" href="{{ url_for('signup') }}" style="color: blueviolet;">Signup</a>
+        <a class="nav-link" href="{{ url_for('login') }}" style="color: blueviolet;">Login</a>
+        {% endif %}
+        </ul>
+      </div>
+  </div>
+  </nav>
+
+  <div class="container mt-4">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  
+</body>
+
+</html>

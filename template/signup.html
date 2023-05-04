@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    body {
+
+      background-image: url("/static/image1.jpg");
+      background-size: cover;
+      background-color: #0B3861; /* Army blue background color */
+    }
+
+    .form-group {
+        margin-bottom: 20px; /* Bottom margin */
+        position: static; /* Relative position */
+    }
+
+    label {
+        display: block; /* Display block */
+        margin-bottom: 5px; /* Bottom margin */
+        font-size: 18px; /* Font size */
+        color: white; /* Text color */
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        display: block; /* Display block */
+        width: 75%; /* Width 100% */
+        padding: 10px; /* Padding */
+        font-size: 16px; /* Font size */
+        border: none; /* No border */
+        border-radius: 20px; /* Rounded corners */
+        background-color: white; /* Background color */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    }
+
+    button[type="submit"] {
+        display: block; /* Display block */
+        width: 65%; /* Width 50% */
+        padding: 10px; /* Padding */
+        margin: auto;
+        font-size: 16px; /* Font size */
+        border: none; /* No border */
+        border-radius: 20px; /* Rounded corners */
+        background-color: #3CB371; /* Button background color */
+        color: white; /* Text color */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    }
+
+    button[type="submit"]:hover {
+        background-color: #2E8B57; /* Button hover background color */
+        cursor: pointer; /* Pointer cursor */
+    }
+</style>
+<h1 align="center">Sign Up</h1>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<form method="POST" action="{{ url_for('signup') }}">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" name="username" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" name="password" required>
+  </div>
+  <button type="submit">Sign Up</button>
+</form>
+{% endblock %}

@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="msg">
+  <p>Welcome, {{ user.username }}</p>
+</div>
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><h1>Crime Rate Predictor<h1></title>
+    <style>
+      /* Set the background color and font family for the page */
+      body {
+        background-color: #09b18c;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Style the main heading */
+      h1 {
+        text-align: center;
+        font-size: 3em;
+        color: #333;
+        margin-top: 2em;
+      }
+
+      /* Style the form container */
+      .container {
+        max-width: 500px;
+        top: 7em;
+        left: 2em;
+        background-color: #0a41a7;
+        padding: 2em;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .container4 {
+        max-width: 170px;
+        position: absolute;
+        top: 4em;
+        right: 1em;
+        background-color: #0a41a7;
+        padding: 2em;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+
+      /* Style the form fields */
+      label {
+        display: block;
+        font-size: 1.2em;
+        margin-bottom: 0.5em;
+        color: #0c0c0c;
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        padding: 0.5em;
+        font-size: 1.2em;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1em;
+      }
+
+      input[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.2em;
+        padding: 0.5em 1em;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #07a73c71;
+      }
+
+      /* Style the result section */
+      .result {
+        margin-top: 2em;
+        font-size: 1.2em;
+        color: #333;
+      }
+
+      .result p {
+        margin-bottom: 0.5em;
+      }
+
+      .result ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .result li {
+        margin-bottom: 0.5em;
+      }
+
+      .nav {
+        background-color: #333;
+        color: #fff;
+        padding: 1em;
+      }
+
+      .nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      .nav li {
+        margin-right: 1em;
+      }
+
+      .nav a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2em;
+      }
+
+      .nav a:hover {
+        text-decoration: underline;
+      }
+
+
+
+
+    </style>
+  </head>
+  <body>
+
+
+    <div class="container4">
+      <form action="/predictc" method="POST">
+        <label for="year"><b>Enter year to be predicted:</b></label>
+        <input type="number" id="year" name="year" required><br><br>
+                <input type="submit" value="Predict">
+      </form>
+    </div>
+    
+    <div class="container">
+      <form action="/predict" method="POST">
+        <label for="Murder">Murder:</label>
+        <input type="number" id="Murder" name="Murder" required>
+
+        <label for="Year">Cybercrime:</label>
+        <input type="number" id="Year" name="Year" required>
+
+        <label for="Location">Assault:</label>
+        <input type="number" id="Location" name="Location" required>
+
+        <label for="Theft">Theft:</label>
+        <input type="number" id="Theft" name="Theft" required>
+
+        <label for="Kidnap">Kidnap:</label>
+        <input type="number" id="Kidnap" name="Kidnap" required>
+
+                <input type="submit" value="CRIME RATE">
+      </form>
+
+      <div class="result">
+        {% if prediction %}
+        <p>The predicted cluster is: {{ prediction }}</p>
+        <p>Mean Crime Rates for Predicted Cluster:</p>
+        <ul>
+          {% for rate in rates %}
+          <li>{{ rate }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+    
+
+  <div class="container mt-4">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+  
+    {% endblock %}
+  </div>
+
+  </body>
+</html>

@@ -1,0 +1,54 @@
+.topnav {
+  text-decoration: none;
+  overflow: hidden;
+  background-color: #75d2d5;
+}
+
+.topnav a {
+  float: left;
+  color: #3f0202;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.topnavright {
+  float: right;
+}
+
+/* ######################################dashboard################## */
+.msg p{
+  float: right;
+  font-weight: bold;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color: rgb(69, 11, 105);
+}
+.msg h1{ 
+  padding-top: 20px;
+  margin-left: 35%;
+  font-weight: bold;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color: rgb(69, 11, 105);
+}
+.form-group {
+  font-size: medium;
+  margin-left: 250px;
+  font-weight: bold;
+
+}
+
+.table-container {
+  margin: 20px;
+  height: 300px; 
+  width: 800px;
+  overflow: scroll;
+  margin-left: 15%;
+}
+.table-container1 {
+  margin: 20px;
+  height: 300px; 
+  width: 800px;
+  overflow: scroll;
+  margin-left: 15%;
+}

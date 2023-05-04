@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<style>
+  body {
+
+    background-image: url("/static/image1.jpg");
+    background-size: cover;
+    background-color: #0B3861;
+  }
+  .form-group {
+    margin-bottom: 20px;
+    position: static;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: white;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    display: block;
+    width: 75%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  button[type="submit"] {
+    display: block;
+    width: 65%;
+    margin: auto;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: #3CB371;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  button[type="submit"]:hover {
+    background-color: #2E8B57;
+    cursor: pointer;
+  }
+</style>
+<h1 align="center">Login</h1>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+    <li class="text-light" style="font-family: 'Montserrat', sans-serif; text-shadow: 2px 2px #333;">{{ message }}</li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+{% endwith %}
+<form method="POST" action="{{ url_for('login') }}" class="text-center">
+              
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" name="password" required>
+  </div>
+              
+  <button type="submit">Login</button>
+ 
+          
+</form>
+          
+{% endblock %}
